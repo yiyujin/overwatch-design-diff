@@ -120,6 +120,18 @@ if (animateBtn && animationRoot) {
     icon: 0
   };
 
+  function updatePartButtonStatuses(values) {
+    partButtons.forEach((btn) => {
+      const part = btn.dataset.part;
+      const status = btn.querySelector('[data-role="status"]');
+      if (!part || !status || !(part in values)) {
+        return;
+      }
+
+      status.textContent = values[part] >= 0.5 ? "Overwatch 2" : "Overwatch 1";
+    });
+  }
+
   function lerp(a, b, t) {
     return a + (b - a) * t;
   }
@@ -279,6 +291,7 @@ if (animateBtn && animationRoot) {
       };
 
       applyState(current);
+      updatePartButtonStatuses(current);
 
       if (raw < 1) {
         rafId = requestAnimationFrame(frame);
@@ -291,12 +304,24 @@ if (animateBtn && animationRoot) {
   }
 
   animateBtn.addEventListener("click", () => {
-    const next = state.controls < 0.5 ? 1 : 0;
+    cancelAnimationFrame(rafId);
+
+    const resetState = {
+      controls: 0,
+      team: 0,
+      arc: 0,
+      icon: 0
+    };
+
+    Object.assign(state, resetState);
+    applyState(state);
+    updatePartButtonStatuses(state);
+
     runLerp({
-      controls: next,
-      team: next,
-      arc: next,
-      icon: next
+      controls: 1,
+      team: 1,
+      arc: 1,
+      icon: 1
     });
   });
 
@@ -316,4 +341,5 @@ if (animateBtn && animationRoot) {
   });
 
   applyState(state);
+  updatePartButtonStatuses(state);
 }

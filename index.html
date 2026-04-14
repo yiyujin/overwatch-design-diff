@@ -10,6 +10,7 @@
   <main class="stage">
     <div style = "display: flex; flex-direction: column; gap: 0px; align-items: center;">
       <h3>OVERWATCH 1</h3>
+      <br/>
       <section class="component1" aria-label="Figma component 19:219">
         <div class="left-group">
           <div class="controls">
@@ -61,9 +62,10 @@
         </div>
       </section>
 
-      <br/><br/>
+      <br/><br/><br/>
       
       <h3>OVERWATCH 2</h3>
+      <br/>
       <section class="component2" aria-label="Figma component 2">
         <div class="left-group">
           <div class="controls">
@@ -195,12 +197,27 @@
       <br/><br/>
       <p style = "padding : 0px 0px; font-size: 12px; line-height: 100%;">Animate by Component</p>
       <div class="anim-buttons" aria-label="Animation controls">
-        <button class="anim-part-btn" data-part="controls" type="button">Controls</button>
-        <button class="anim-part-btn" data-part="team" type="button">Team</button>
-        <button class="anim-part-btn" data-part="arc" type="button">Arc</button>
-        <button class="anim-part-btn" data-part="icon" type="button">Icon</button>
+        <button class="anim-part-btn" data-part="controls" type="button">
+          <span class="btn-label">Controls</span>
+          <span class="btn-subtitle" data-role="status">Overwatch 1</span>
+        </button>
+        <button class="anim-part-btn" data-part="team" type="button">
+          <span class="btn-label">Team</span>
+          <span class="btn-subtitle" data-role="status">Overwatch 1</span>
+        </button>
+        <button class="anim-part-btn" data-part="arc" type="button">
+          <span class="btn-label">Arc</span>
+          <span class="btn-subtitle" data-role="status">Overwatch 1</span>
+        </button>
+        <button class="anim-part-btn" data-part="icon" type="button">
+          <span class="btn-label">Icon</span>
+          <span class="btn-subtitle" data-role="status">Overwatch 1</span>
+        </button>
       </div>
-      <button style="display : none;" id="animateBtn" type="button">Animate Everything</button>
+      <button id="animateBtn" type="button" class="animate-all-btn">
+        <span class="btn-label">Animate Everything</span>
+        <span class="btn-subtitle">Overwatch 1 -> Overwatch 2</span>
+      </button>
 
         <!-- <button id="bgBtn" type="button">BG</button> -->
     </div>
